@@ -1,5 +1,7 @@
 # meok_log
 
+[![Build Status](https://travis-ci.org/meoklog/meok_log.svg?branch=master)](https://travis-ci.org/meoklog/meok_log)
+
 Meok is an illustrator.
 
 Meok would like to have traces of her progress through posts
