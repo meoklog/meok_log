@@ -1,4 +1,7 @@
 
+require "yaml"
+require "markdown"
+
 module MeokLog
   module Providers
     class MdYaml
