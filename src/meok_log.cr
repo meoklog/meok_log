@@ -11,7 +11,7 @@ module MeokLog
   config = {data: "./data"}
   dispatcher = MeokLog::Dispatcher.new(config)
 
-  input =  dispatcher.fetch_all
+  input = dispatcher.fetch_all
 
   yamls = input.map { |page| page["yaml"] }
   p "jours de travail totaux : "
