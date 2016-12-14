@@ -30,18 +30,18 @@ describe MeokLog::Parsers::Binding do
             expect(subject.bindings).to eq(["travail", "humeur", "stress", "date"])
           end
         end
-        describe "and there is no yaml meta data" do
-          it "raise an exception" do
-            file_content = "3ds max"
-            file_reader = ->( file : String ) { file_content }
-            file_resolver = MeokLog::Resolvers::File
-            file_fetched = file_resolver.read_all(["1.md"], "data", file_reader)
-            subject = MeokLog::Parsers::Binding.new
-            expect {
-              expect(subject.md(file_fetched)).to be_truthy
-            }.to raise_error Exception
-          end
-        end
+        # describe "and there is no yaml meta data" do
+        #   it "raise an exception" do
+        #     file_content = "3ds max"
+        #     file_reader = ->( file : String ) { file_content }
+        #     file_resolver = MeokLog::Resolvers::File
+        #     file_fetched = file_resolver.read_all(["1.md"], "data", file_reader)
+        #     subject = MeokLog::Parsers::Binding.new
+        #     expect {
+        #       expect(subject.md(file_fetched)).to be_truthy
+        #     }.to raise_error Exception
+        #   end
+        # end
       end
     end
   end
