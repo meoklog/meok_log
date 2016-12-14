@@ -1,2 +1,4 @@
 language: crystal
-script: mkdir data
+script:
+  - mkdir data
+  - crystal spec
