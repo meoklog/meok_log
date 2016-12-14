@@ -14,6 +14,10 @@ module MeokLog
   input = dispatcher.fetch_all
 
   yamls = input.map { |page| page["yaml"] }
-  p "jours de travail totaux : "
-  p MeokLog::Reducers::CountWorking.total(yamls)
+  bindings = MeokLog::Reducers::CountBinding.new(
+    ["humeur", "stress", "base"],
+    yamls
+  )
+  
+  puts "stress présent dans #{bindings.total("stress")} fichiers"
 end

@@ -19,7 +19,6 @@ module MeokLog
         if (content_written.empty?)
           raise IO::Error.new "no content written"
         end
-
         content_written
       end
     end
