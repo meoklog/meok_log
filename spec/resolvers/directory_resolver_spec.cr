@@ -12,25 +12,25 @@ describe MeokLog::Resolvers::Directory do
         end
       end
 
-    #   describe "when no files have been found" do
-    #     it "raise an exception" do
-    #       reader = -> (dir_name : String) { [] of String }
-    #       subject = MeokLog::Resolvers::Directory
-    #       expect {
-    #         expect(subject.fetch("stub", reader)).to be_truthy
-    #       }.to raise_error Exception
-    #     end
-    #   end
-    # end
-    #
-    # describe "when ressource is not set" do
-    #   it "raise an exception" do
-    #     reader = -> (dir_name : String) { [] of String }
-    #     subject = MeokLog::Resolvers::Directory
-    #     expect {
-    #       expect(subject.fetch("", reader)).to be_truthy
-    #     }.to raise_error ArgumentError
-    #   end
+      describe "when no files have been found" do
+        it "raise an exception" do
+          reader = -> (dir_name : String) { [] of String }
+          subject = MeokLog::Resolvers::Directory
+          expect_raises(Exception) do
+            expect(subject.fetch("stub", reader)).to be_truthy
+          end
+        end
+      end
+    end
+
+    describe "when ressource is not set" do
+      it "raise an exception" do
+        reader = -> (dir_name : String) { [] of String }
+        subject = MeokLog::Resolvers::Directory
+        expect_raises(Exception) do
+          expect(subject.fetch("", reader)).to be_truthy
+        end
+      end
     end
   end
 end
