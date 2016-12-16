@@ -21,6 +21,15 @@ module MeokLog
         end
       end
 
+      def to_pairs(prop : String, filenames : Array(String))
+        @data.map_with_index do |d, index|
+          {
+            "date": filenames[index].to_s,
+            "value": d[prop].to_s
+          }
+        end
+      end
+
     end
 
   end
