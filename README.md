@@ -16,6 +16,7 @@ If you don't know what is a markdown file with yaml meta data, please refer at
 __meok_log__ will read files stored in [data directory][example-config-data] and :
   - split pure markdown contents and [yaml-meta datas][site-yamlmeta]
   - analyze [yaml-meta datas][site-yamlmeta] datas
+  given a [binding config][example-config-binding]
 
 __meok_log__ use [crystal language][site-crystal]
 
@@ -43,6 +44,8 @@ require "meok_log"
 
 Markdown:
 
+> file: data/my_post.md
+
 ```markdown
 ---
 travail: false
@@ -55,11 +58,27 @@ date: 2016-10-20
 ```
 
 Data directory config:
+
+> file : config/data.yml
+
 ```yaml
 # Given the markdown files are stored in ./data
 data: "./data"
 ```
 
+Bindings config:
+
+_note that the "date" property is automatically binded −
+you can also overrides date binding if wanted _
+
+> file : confing/bindings.yml
+
+```yaml
+bindings:
+  - humeur
+  - stress
+  - travail
+```
 
 ## Development
 
@@ -94,3 +113,5 @@ To run the tests, type ``crystal spec`` in a terminal.
 [site-better-spec]: http://betterspecs.org
 [github-spec2cr]: https://github.com/waterlink/spec2.cr
 [example-md]: #examples
+[example-config-data]: #example
+[example-config-binding]: #examples
