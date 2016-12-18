@@ -27,7 +27,15 @@ module MeokLog
       file_list = dir.fetch(@config["data"], @dir_reader)
       md_list = extension.select(file_list, @extension_pattern)
       contents = file.read_all(md_list, @config["data"], @file_reader)
-      parsed_contents = contents.map { |content| @parser.call content}
+      parsed_contents = contents
+        .map { |content| @parser.call content }
+        .map_with_index do |e, i|
+           {
+            "yaml": e["yaml"],
+            "filename": md_list[i],
+            "md": e["md"]
+           }
+         end
 
       parsed_contents
     end

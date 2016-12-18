@@ -14,6 +14,7 @@ module MeokLog
   dispatcher = MeokLog::Dispatcher.new({ data: config_content["data"].to_s })
   input = dispatcher.fetch_all
   yamls = input.map { |page| page["yaml"] }
+  filenames = input.map { |page| page["filename"] }
 
   bindings_data = MeokLog::Parsers::Binding.new
 
@@ -22,5 +23,11 @@ module MeokLog
     yamls
   )
 
+  date_stress = MeokLog::Reducers::PairDate.new(
+    "date",
+    yamls
+  )
+
   puts "stress présent dans #{bindings.total("stress")} fichiers"
+  puts "humeur par date : #{date_stress.to_pairs("humeur", filenames)}"
 end
