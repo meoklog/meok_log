@@ -9,7 +9,7 @@ module MeokLog
       getter :date_binding
       getter :data
 
-      def initialize(@date_binding : String = "date", @data = [YAML.parse("")])
+      def initialize(@data = [YAML.parse("")], @date_binding : String = "date")
       end
 
       def to_pairs(prop : String)

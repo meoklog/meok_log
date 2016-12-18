@@ -16,7 +16,7 @@ describe MeokLog::Reducers::PairDate do
             { stress: 3, humeur: "pas bon", date: tomorrow.to_s }
           ]
           yaml_data = data.map { |d| YAML.parse(YAML.dump(d)) }
-          subject = MeokLog::Reducers::PairDate.new("date", yaml_data)
+          subject = MeokLog::Reducers::PairDate.new(yaml_data, "date")
           expect(subject.to_pairs("stress")).to be_a Array({date: String, value: String})
         end
       end
@@ -32,7 +32,7 @@ describe MeokLog::Reducers::PairDate do
               ]
               filenames = [now.to_s, tomorrow.to_s]
               yaml_data = data.map { |d| YAML.parse(YAML.dump(d)) }
-              subject = MeokLog::Reducers::PairDate.new("date", yaml_data)
+              subject = MeokLog::Reducers::PairDate.new(yaml_data, "date")
               expect(subject.to_pairs("stress", filenames)).to be_a Array({date: String, value: String})
             end
           end

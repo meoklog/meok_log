@@ -24,8 +24,8 @@ module MeokLog
   )
 
   date_stress = MeokLog::Reducers::PairDate.new(
-    "date",
-    yamls
+    yamls,
+    "date"
   )
 
   puts "stress présent dans #{bindings.total("stress")} fichiers"
