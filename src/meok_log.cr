@@ -6,8 +6,11 @@ require "./meok_log/resolvers/*"
 require "./meok_log/providers/*"
 require "./meok_log/parsers/*"
 require "./meok_log/reducers/*"
+require "env"
 
 module MeokLog
+  ENV["TEST"] ||= "0"
+
   config_content = YAML.parse(File.read("config/data.yml"))
   bindings_content = YAML.dump(YAML.parse(File.read("config/bindings.yml")))
 
@@ -28,6 +31,8 @@ module MeokLog
     "date"
   )
 
-  puts "stress présent dans #{bindings.total("stress")} fichiers"
-  puts "humeur par date : #{date_stress.to_pairs("humeur", filenames)}"
+  if ENV["TEST"] == "0"
+    puts "stress présent dans #{bindings.total("stress")} fichiers"
+    puts "humeur par date : #{date_stress.to_pairs("humeur", filenames)}"
+  end
 end
