@@ -17,6 +17,7 @@ __meok_log__ will read files stored in [data directory][example-config-data] and
   - split pure markdown contents and [yaml-meta datas][site-yamlmeta]
   - analyze [yaml-meta datas][site-yamlmeta] datas
   given a [binding config][example-config-binding]
+  - serve the results through [an API]()
 
 __meok_log__ use [crystal language][site-crystal]
 
@@ -33,12 +34,17 @@ dependencies:
 
 ## Usage
 
+### Programatically
 
 ```crystal
 require "meok_log"
 ```
 
+### API
 
+```crystal
+require "src/web/index"
+```
 
 ### Examples
 

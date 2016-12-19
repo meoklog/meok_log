@@ -9,3 +9,6 @@ license: MIT
 dependencies:
   expect:
     github: dukex/expect.cr
+  kemal:
+    github: kemalcr/kemal
+    branch: master
