@@ -2,13 +2,14 @@ name: meok_log
 version: 0.1.0
 
 authors:
-  -  <>
+  -  meoklog <https://github/meoklog>
+
+targets:
+  meok_log:
+    main: src/meok_log.cr
 
 license: MIT
 
 dependencies:
   expect:
     github: dukex/expect.cr
-  kemal:
-    github: kemalcr/kemal
-    branch: master
